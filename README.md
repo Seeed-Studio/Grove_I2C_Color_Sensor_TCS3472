@@ -1,7 +1,12 @@
-#Adafruit TCS34725 Color Sensor Driver #
+# Adafruit TCS34725 Color Sensor Driver #
 
-This driver is for the Adafruit TCS34725 Breakout.
-    ------> http://www.adafruit.com/products/1334
+## Grove - I2C Color Sensor TCS34372 ##
+
+![Grove - Mini I2C Motor Driver TCS3472](https://statics3.seeedstudio.com/seeed/img/2016-10/8Qe0dAysi8buqDlJz2AnNNXv.jpg)
+
+This driver is for the [Grove - I2C Color Sensor TCS34372](https://www.seeedstudio.com/Grove-I2C-Color-Sensor-p-854.html)(Adafruit TCS34725 Breakout.
+    ------> http://www.adafruit.com/products/1334)
+ 
 
 ## About this Driver ##
 
