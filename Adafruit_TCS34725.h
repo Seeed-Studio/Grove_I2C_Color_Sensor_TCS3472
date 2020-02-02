@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*! 
+/*!
     @file     Adafruit_TCS34725.h
     @author   KTOWN (Adafruit Industries)
 
@@ -37,9 +37,9 @@
 #define _TCS34725_H_
 
 #if ARDUINO >= 100
- #include <Arduino.h>
+    #include <Arduino.h>
 #else
- #include <WProgram.h>
+    #include <WProgram.h>
 #endif
 
 #include <Wire.h>
@@ -95,50 +95,48 @@
 #define TCS34725_BDATAL           (0x1A)    /* Blue channel data */
 #define TCS34725_BDATAH           (0x1B)
 
-typedef enum
-{
-  TCS34725_INTEGRATIONTIME_2_4MS  = 0xFF,   /**<  2.4ms - 1 cycle    - Max Count: 1024  */
-  TCS34725_INTEGRATIONTIME_24MS   = 0xF6,   /**<  24ms  - 10 cycles  - Max Count: 10240 */
-  TCS34725_INTEGRATIONTIME_50MS   = 0xEB,   /**<  50ms  - 20 cycles  - Max Count: 20480 */
-  TCS34725_INTEGRATIONTIME_101MS  = 0xD5,   /**<  101ms - 42 cycles  - Max Count: 43008 */
-  TCS34725_INTEGRATIONTIME_154MS  = 0xC0,   /**<  154ms - 64 cycles  - Max Count: 65535 */
-  TCS34725_INTEGRATIONTIME_700MS  = 0x00    /**<  700ms - 256 cycles - Max Count: 65535 */
+typedef enum {
+    TCS34725_INTEGRATIONTIME_2_4MS  = 0xFF,   /**<  2.4ms - 1 cycle    - Max Count: 1024  */
+    TCS34725_INTEGRATIONTIME_24MS   = 0xF6,   /**<  24ms  - 10 cycles  - Max Count: 10240 */
+    TCS34725_INTEGRATIONTIME_50MS   = 0xEB,   /**<  50ms  - 20 cycles  - Max Count: 20480 */
+    TCS34725_INTEGRATIONTIME_101MS  = 0xD5,   /**<  101ms - 42 cycles  - Max Count: 43008 */
+    TCS34725_INTEGRATIONTIME_154MS  = 0xC0,   /**<  154ms - 64 cycles  - Max Count: 65535 */
+    TCS34725_INTEGRATIONTIME_700MS  = 0x00    /**<  700ms - 256 cycles - Max Count: 65535 */
 }
 tcs34725IntegrationTime_t;
 
-typedef enum
-{
-  TCS34725_GAIN_1X                = 0x00,   /**<  No gain  */
-  TCS34725_GAIN_4X                = 0x01,   /**<  4x gain  */
-  TCS34725_GAIN_16X               = 0x02,   /**<  16x gain */
-  TCS34725_GAIN_60X               = 0x03    /**<  60x gain */
+typedef enum {
+    TCS34725_GAIN_1X                = 0x00,   /**<  No gain  */
+    TCS34725_GAIN_4X                = 0x01,   /**<  4x gain  */
+    TCS34725_GAIN_16X               = 0x02,   /**<  16x gain */
+    TCS34725_GAIN_60X               = 0x03    /**<  60x gain */
 }
 tcs34725Gain_t;
 
 class Adafruit_TCS34725 {
- public:
-  Adafruit_TCS34725(tcs34725IntegrationTime_t = TCS34725_INTEGRATIONTIME_2_4MS, tcs34725Gain_t = TCS34725_GAIN_1X);
-  
-  boolean  begin(void);
-  void     setIntegrationTime(tcs34725IntegrationTime_t it);
-  void     setGain(tcs34725Gain_t gain);
-  void     getRawData(uint16_t *r, uint16_t *g, uint16_t *b, uint16_t *c);
-  uint16_t calculateColorTemperature(uint16_t r, uint16_t g, uint16_t b);
-  uint16_t calculateLux(uint16_t r, uint16_t g, uint16_t b);
-  void     write8 (uint8_t reg, uint32_t value);
-  uint8_t  read8 (uint8_t reg);
-  uint16_t read16 (uint8_t reg);
-  void setInterrupt(boolean flag);
-  void clearInterrupt(void);
-  void setIntLimits(uint16_t l, uint16_t h);
-  void     enable(void);
+  public:
+    Adafruit_TCS34725(tcs34725IntegrationTime_t = TCS34725_INTEGRATIONTIME_2_4MS, tcs34725Gain_t = TCS34725_GAIN_1X);
 
- private:
-  boolean _tcs34725Initialised;
-  tcs34725Gain_t _tcs34725Gain;
-  tcs34725IntegrationTime_t _tcs34725IntegrationTime; 
-  
-  void     disable(void);
+    boolean  begin(void);
+    void     setIntegrationTime(tcs34725IntegrationTime_t it);
+    void     setGain(tcs34725Gain_t gain);
+    void     getRawData(uint16_t* r, uint16_t* g, uint16_t* b, uint16_t* c);
+    uint16_t calculateColorTemperature(uint16_t r, uint16_t g, uint16_t b);
+    uint16_t calculateLux(uint16_t r, uint16_t g, uint16_t b);
+    void     write8(uint8_t reg, uint32_t value);
+    uint8_t  read8(uint8_t reg);
+    uint16_t read16(uint8_t reg);
+    void setInterrupt(boolean flag);
+    void clearInterrupt(void);
+    void setIntLimits(uint16_t l, uint16_t h);
+    void     enable(void);
+
+  private:
+    boolean _tcs34725Initialised;
+    tcs34725Gain_t _tcs34725Gain;
+    tcs34725IntegrationTime_t _tcs34725IntegrationTime;
+
+    void     disable(void);
 };
 
 #endif
