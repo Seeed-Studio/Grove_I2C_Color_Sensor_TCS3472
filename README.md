@@ -1,4 +1,4 @@
-# Adafruit TCS34725 Color Sensor Driver #
+# Adafruit TCS34725 Color Sensor Driver #  [![Build Status](https://travis-ci.com/Seeed-Studio/Grove_I2C_Color_Sensor_TCS3472.svg?branch=master)](https://travis-ci.com/Seeed-Studio/Grove_I2C_Color_Sensor_TCS3472)
 
 ## Grove - I2C Color Sensor TCS34372 ##
 
